@@ -1,5 +1,5 @@
 package com.example.web;
-
+import org.springframework.roo.addon.web.mvc.thymeleaf.annotations.RooThymeleafMainController;
 import io.springlets.web.NotFoundException;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * TODO Auto-generated class documentation
  *
  */
+@RooThymeleafMainController
 @Controller
 public class MainController {
 

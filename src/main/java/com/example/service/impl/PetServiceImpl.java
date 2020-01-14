@@ -1,8 +1,10 @@
-package com.example.service;
+package com.example.service.impl;
+import org.springframework.roo.addon.layers.service.annotations.RooServiceImpl;
 
+import io.springlets.data.domain.GlobalSearch;
+import io.springlets.data.web.validation.MessageI18n;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,9 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.Pet;
 import com.example.repository.PetRepository;
-
-import io.springlets.data.domain.GlobalSearch;
-import io.springlets.data.web.validation.MessageI18n;
+import com.example.service.api.PetService;
 
 /**
  * = PetServiceImpl
@@ -21,9 +21,10 @@ import io.springlets.data.web.validation.MessageI18n;
  * TODO Auto-generated class documentation
  *
  */
+@RooServiceImpl(service = PetService.class)
 @Service
 @Transactional(readOnly = true)
-public class PetService {
+public class PetServiceImpl implements PetService {
 
     /**
      * TODO Auto-generated attribute documentation
@@ -37,7 +38,7 @@ public class PetService {
      * @param petRepository
      */
     @Autowired
-    public PetService(PetRepository petRepository) {
+    public PetServiceImpl(PetRepository petRepository) {
         setPetRepository(petRepository);
     }
 

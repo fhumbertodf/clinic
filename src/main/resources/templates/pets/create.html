@@ -44,6 +44,7 @@
     </div>
   </div>
 </div>
+
 <div class="form-group has-error has-feedback" data-z="88472854" id="pet-name-field" data-th-classappend="${#fields.hasErrors('name')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="name" class="col-md-3 control-label" data-th-text="#{label_pet_name}">name</label>
   <div class="col-md-6">
@@ -52,6 +53,7 @@
       <span id="name-error" class="help-block" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">Error message.</span>
   </div>
 </div>
+
 <div class="form-group has-error has-feedback" data-z="e81cdd74" id="pet-weight-field" data-th-classappend="${#fields.hasErrors('weight')}? 'has-error has-feedback'" data-th-class="form-group">
   <label for="weight" class="col-md-3 control-label" data-th-text="#{label_pet_weight}">weight</label>
   <div class="col-md-3">
@@ -59,6 +61,15 @@
       <span data-th-classappend="${#fields.hasErrors('weight')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('weight')}" aria-hidden="true"></span>
       <span id="weight-error" class="help-block" data-th-if="${#fields.hasErrors('weight')}" data-th-errors="*{weight}">Error message.</span>
   </div>
+</div>  
+
+<div class="form-group has-error has-feedback" data-z="e81cdd74" id="pet-type-field" data-th-classappend="${#fields.hasErrors('type')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="type" class="col-md-3 control-label" data-th-text="#{label_pet_type}">type</label>
+  <div class="col-md-3">
+    <input id="type" name="type" data-th-value="*{{type}}" type="text" class="form-control inputmask" placeholder="type" data-th-placeholder="#{label_pet_type}" data-toggle="tooltip" aria-describedby="typeStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('type')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('type')}" aria-hidden="true"></span>
+      <span id="type-error" class="help-block" data-th-if="${#fields.hasErrors('type')}" data-th-errors="*{type}">Error message.</span>
+  </div>  
 </div>
             </fieldset>
 

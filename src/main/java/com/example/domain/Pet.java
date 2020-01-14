@@ -3,6 +3,7 @@ package com.example.domain;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.NumberFormat;
+import org.springframework.roo.addon.javabean.annotations.RooEquals;
+import org.springframework.roo.addon.javabean.annotations.RooJavaBean;
+import org.springframework.roo.addon.javabean.annotations.RooToString;
+import org.springframework.roo.addon.jpa.annotations.entity.RooJpaEntity;
+
+import com.example.domain.reference.PetType;
+
+import io.springlets.format.EntityFormat;
 
 /**
  * = Pet
@@ -20,7 +29,12 @@ import org.springframework.format.annotation.NumberFormat;
  * TODO Auto-generated class documentation
  *
  */
+@RooJavaBean
+@RooToString
+@RooJpaEntity(entityFormatExpression = "#{name} (#{type})")
+@RooEquals(isJpaEntity = true)
 @Entity
+@EntityFormat("#{name} (#{type})")
 public class Pet {
 
 	/**
@@ -62,6 +76,14 @@ public class Pet {
 	@Min(0L)
 	@NumberFormat
 	private Float weight;
+
+	/**
+	 * TODO Auto-generated attribute documentation
+	 *
+	 */
+	@NotNull
+	@Enumerated
+	private PetType type;
 
 	/**
 	 * TODO Auto-generated attribute documentation
@@ -158,7 +180,7 @@ public class Pet {
 	/**
 	 * Gets weight value
 	 *
-	 * @return Float
+	 * @return FLoat
 	 */
 	public Float getWeight() {
 		return this.weight;
@@ -172,6 +194,26 @@ public class Pet {
 	 */
 	public Pet setWeight(Float weight) {
 		this.weight = weight;
+		return this;
+	}
+
+	/**
+	 * Gets type value
+	 *
+	 * @return PetType
+	 */
+	public PetType getType() {
+		return this.type;
+	}
+
+	/**
+	 * Sets type value
+	 *
+	 * @param type
+	 * @return Pet
+	 */
+	public Pet setType(PetType type) {
+		this.type = type;
 		return this;
 	}
 

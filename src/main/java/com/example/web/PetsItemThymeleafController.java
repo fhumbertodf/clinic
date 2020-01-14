@@ -10,6 +10,7 @@ import io.springlets.web.mvc.util.ControllerMethodLinkBuilderFactory;
 import io.springlets.web.mvc.util.MethodLinkBuilderFactory;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyCallback;
 import io.springlets.web.mvc.util.concurrency.ConcurrencyTemplate;
+import java.util.Arrays;
 import java.util.Locale;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponents;
 
 import com.example.domain.Pet;
+import com.example.domain.reference.PetType;
 import com.example.service.api.PetService;
 
 /**
@@ -231,6 +233,7 @@ public class PetsItemThymeleafController implements ConcurrencyManager<Pet> {
      */
     public void populateForm(Model model) {
         populateFormats(model);
+        model.addAttribute("type", Arrays.asList(PetType.values()));
     }
 
     /**

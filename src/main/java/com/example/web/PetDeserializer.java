@@ -1,12 +1,12 @@
 package com.example.web;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.roo.addon.web.mvc.controller.annotations.config.RooDeserializer;
 
 import com.example.domain.Pet;
-import com.example.service.PetService;
+import com.example.service.api.PetService;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -20,6 +20,7 @@ import org.springframework.boot.jackson.JsonComponent;
  * TODO Auto-generated class documentation
  *
  */
+@RooDeserializer(entity = Pet.class)
 @JsonComponent
 public class PetDeserializer extends JsonObjectDeserializer<Pet> {
 
